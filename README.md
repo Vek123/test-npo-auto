@@ -1,2 +1,2 @@
 # test-npo-avto
-Test case for NPO Automotive
+Flet приложение для мониторинга CPU, RAM, ROM loads.

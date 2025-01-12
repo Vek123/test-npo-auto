@@ -25,6 +25,10 @@ class BaseDB(ABC):
     def delete(self, query):
         pass
 
+    @abc.abstractmethod
+    def all(self):
+        pass
+
 
 class Tiny(BaseDB):
     def __init__(self, db: TinyDB):
@@ -32,6 +36,9 @@ class Tiny(BaseDB):
 
     def create(self, instance: Base):
         self.db.insert(instance.model_dump())
+
+    def all(self):
+        return self.db.all()
 
     def search(self, query: QueryLike):
         return self.db.search(query)

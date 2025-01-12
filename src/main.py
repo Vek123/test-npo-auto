@@ -16,7 +16,8 @@ def main(page: ft.Page):
 
     app_routes = [
         path("/", view=Home().view, clear=True),
-        path("/settings", view=Settings().view, clear=True)
+        path("/settings", view=Settings().view, clear=True),
+        path("/history", view=History().view, clear=True),
     ]
     Routing(page=page, app_routes=app_routes)
     page.go(page.route)

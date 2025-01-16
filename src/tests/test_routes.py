@@ -1,10 +1,8 @@
-from collections import deque
-
 from flet_route import path
 from unittest import TestCase
 
 from main import APP_ROUTES
-from views import *
+from views import HomeView, HistoryView, SettingsView
 
 
 class TestRoutes(TestCase):

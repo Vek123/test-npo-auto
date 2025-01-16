@@ -1,8 +1,6 @@
 from dependency_injector import containers, providers
-from tinydb import TinyDB
 
 from db import Tiny, get_stats_table, get_tiny_db
-from settings import settings
 from services.statistic import StatisticService
 
 

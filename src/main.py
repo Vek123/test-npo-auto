@@ -1,11 +1,9 @@
-import logging
-
 import flet as ft
 from flet_route import path, Routing
 
 from deps.containers import Application
 from settings import settings
-from views import *
+from views import HomeView, SettingsView, HistoryView
 from logger import logger
 
 APP_ROUTES = [

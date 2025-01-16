@@ -56,7 +56,7 @@ def get_tiny_db():
         db = TinyDB(settings.db_path)
         return db
     except PermissionError as e:
-        logger.debug(e)
+        logger.error(e)
 
 
 def get_stats_table(db: TinyDB):

@@ -1,4 +1,5 @@
 import logging
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("flet_core")
+logger.setLevel(logging.INFO)

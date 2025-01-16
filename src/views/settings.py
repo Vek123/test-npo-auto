@@ -26,7 +26,7 @@ class SettingsView:
                 logger.debug(e)
             except Exception:
                 error_message.value = "Значения введены некорректно"
-                logger.debug("Some written settings values is incorrect")
+                logger.info("Some written settings values is incorrect")
             else:
                 error_message.value = None
             settings.db_stats_table_name = setting_db_stats_table_name.value

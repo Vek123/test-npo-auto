@@ -1,3 +1,5 @@
+import logging
+
 import flet as ft
 from flet_route import path, Routing
 
@@ -29,7 +31,6 @@ if __name__ == "__main__":
     application = Application()
     application.wire(packages=["views"])
     try:
-        logger.debug("Application is running...")
         ft.app(main)
     except RuntimeError as e:
-        logger.debug(e)
+        logger.info(e)

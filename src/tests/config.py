@@ -1,5 +1,7 @@
+import flet as ft
 import pytest
 
+import main
 from db import TinyDB, Tiny
 from services.statistic import StatisticService
 

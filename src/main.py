@@ -4,6 +4,13 @@ from flet_route import path, Routing
 from deps.containers import Application
 from settings import settings
 from views import *
+from logger import logger
+
+APP_ROUTES = [
+    path("/", view=HomeView().view, clear=True),
+    path("/settings", view=SettingsView().view, clear=True),
+    path("/history", view=HistoryView().view, clear=True),
+]
 
 
 def main(page: ft.Page):
@@ -14,18 +21,15 @@ def main(page: ft.Page):
     page.window.min_height = settings.minimum_window_size[1]
     page.window.min_width = settings.minimum_window_size[0]
 
-    app_routes = [
-        path("/", view=Home().view, clear=True),
-        path("/settings", view=Settings().view, clear=True),
-        path("/history", view=History().view, clear=True),
-    ]
-    Routing(page=page, app_routes=app_routes)
+    Routing(page=page, app_routes=APP_ROUTES)
     page.go(page.route)
 
 
-application = Application()
-application.wire(packages=["views"])
-try:
-    ft.app(main)
-except RuntimeError:
-    pass
+if __name__ == "__main__":
+    application = Application()
+    application.wire(packages=["views"])
+    try:
+        logger.debug("Application is running...")
+        ft.app(main)
+    except RuntimeError as e:
+        logger.debug(e)

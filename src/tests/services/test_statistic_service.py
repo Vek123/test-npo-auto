@@ -2,7 +2,7 @@ from tests.config import db, stat_service
 from schemas.statistic import StatisticSchema
 
 
-class TestStatistic:
+class TestStatisticService:
     def setup_class(self):
         self.valid_statistic = StatisticSchema(
             cpu=10.0,

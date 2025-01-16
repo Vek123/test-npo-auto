@@ -1,5 +1,5 @@
-from views.home import Home
-from views.settings import Settings
-from views.history import History
+from views.home import HomeView
+from views.settings import SettingsView
+from views.history import HistoryView
 
-__all__ = ["Home", "Settings", "History"]
+__all__ = ["HomeView", "SettingsView", "HistoryView"]

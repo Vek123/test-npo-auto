@@ -7,7 +7,7 @@ from schemas.statistic import StatisticSchema
 from services.statistic import StatisticService
 
 
-class History:
+class HistoryView:
     @inject
     def view(
             self,

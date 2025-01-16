@@ -4,9 +4,10 @@ import flet as ft
 from flet_route import Basket, Params
 
 from settings import settings
+from logger import logger
 
 
-class Settings:
+class SettingsView:
     def view(self, page: ft.Page, params: Params, basket: Basket) -> ft.View:
         def save_settings(event: ft.ControlEvent):
             try:
@@ -14,13 +15,18 @@ class Settings:
                 if path.exists():
                     settings.db_path = setting_db_path.value
                 else:
-                    raise FileNotFoundError("File not found")
+                    raise FileNotFoundError("DB file not found")
                 settings.update_stats_period = max(0.1, float(setting_update_stats_period.value))
             except TypeError:
                 error_message.value = "Значение периода некорректно"
                 setting_db_path.value = settings.db_path
+                logger.debug("Period value is incorrect")
+            except FileNotFoundError as e:
+                error_message.value = "Файл БД не существует"
+                logger.debug(e)
             except Exception:
                 error_message.value = "Значения введены некорректно"
+                logger.debug("Some written settings values is incorrect")
             else:
                 error_message.value = None
             settings.db_stats_table_name = setting_db_stats_table_name.value

@@ -17,7 +17,7 @@ from utils import create_filled_button
 timer_mutex = threading.Lock()
 
 
-class Home:
+class HomeView:
     cpu_load_template: str = "ЦП: %.2f %%"
     ram_template: str = "ОЗУ: %.2f / %.2f МБ"
     rom_template: str = "ПЗУ: %.2f / %.2f ГБ"
@@ -59,7 +59,7 @@ class Home:
         for variant in self.record_button_settings:
             variant["on_click"] = toggle_record
 
-        def save_stat(stat: StatisticSchema, ):
+        def save_stat(stat: StatisticSchema):
             stat_service.create(stat)
 
         def get_size(bts: float, to: str) -> float:

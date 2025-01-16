@@ -4,6 +4,7 @@ from tinydb import TinyDB
 from tinydb.queries import QueryLike
 from abc import ABC
 
+from logger import logger
 from schemas.base import Base
 from settings import settings
 
@@ -51,7 +52,11 @@ class Tiny(BaseDB):
 
 
 def get_tiny_db():
-    return TinyDB(settings.db_path)
+    try:
+        db = TinyDB(settings.db_path)
+        return db
+    except PermissionError as e:
+        logger.debug(e)
 
 
 def get_stats_table(db: TinyDB):

@@ -1,6 +1,9 @@
 # test-npo-avto
-Flet приложение для мониторинга CPU, RAM, ROM loads.
+Flet app to monitor CPU, RAM, ROM loads.
 ## Инструкция по запуску
+Install `flutter` and add path to bin folder in it to PATH.<br>
+Use `python -m venv .venv` to install python virtual environment. Activate it.<br>
+Use `pip install -r requirements.txt` to install python dependencies.<br>
 ### DEV RUN: `flet run`
 ### BUILD PROJECT: `flet build <platform:[windows, linux...]>`
 ### RUN BUILT PROJECT (Run as `sudo` or change db path in settings if history is empty after recording):<br>- Windows: run `/build/windows/app.exe`<br>- Linux: `./build/linux/app`

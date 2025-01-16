@@ -81,9 +81,9 @@ class HomeView:
                 time.sleep(1)
 
         def make_timer_value(timer: ft.Text, minutes: int, seconds: int):
-            timer.value = (f"{"0" if minutes < 10 else ""}"
+            timer.value = (f"{'0' if minutes < 10 else ''}"
                            f"{minutes}:"
-                           f"{"0" if seconds < 10 else ""}"
+                           f"{'0' if seconds < 10 else ''}"
                            f"{seconds}")
 
         def update_stats():

@@ -59,5 +59,7 @@ def get_tiny_db():
         logger.error(e)
 
 
-def get_stats_table(db: TinyDB):
-    return db.table(settings.db_stats_table_name)
+def get_stats_table(db: TinyDB | None):
+    if db is not None:
+        return db.table(settings.db_stats_table_name)
+    return

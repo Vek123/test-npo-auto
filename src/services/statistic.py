@@ -30,6 +30,9 @@ class StatisticService(object):
         return stats_pydantic
 
     def all(self) -> list[StatisticSchema]:
-        result = self.db.all()
-        stats_pydantic = self._to_pydantic(result)
+        try:
+            result = self.db.all()
+            stats_pydantic = self._to_pydantic(result)
+        except AttributeError:
+            stats_pydantic = []
         return stats_pydantic

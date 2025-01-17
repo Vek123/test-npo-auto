@@ -1,9 +1,11 @@
+from unittest import TestCase
+
 from tests.config import db, stat_service
 from schemas.statistic import StatisticSchema
 
 
-class TestStatisticService:
-    def setup_class(self):
+class TestStatisticService(TestCase):
+    def setUp(self):
         self.valid_statistic = StatisticSchema(
             cpu=10.0,
             ram=[10.0, 20.0],

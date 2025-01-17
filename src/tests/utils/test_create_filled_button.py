@@ -1,8 +1,9 @@
+from unittest import TestCase
 from utils import create_filled_button
 
 
-class TestFilledButton:
-    def setup_class(self):
+class TestFilledButton(TestCase):
+    def setUp(self):
         self.params = {
             "text": "Hello World",
         }

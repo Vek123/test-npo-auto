@@ -1,9 +1,11 @@
 from unittest import TestCase
 
+import pytest
 from tests.config import db, stat_service
 from schemas.statistic import StatisticSchema
 
 
+@pytest.mark.usefixtures("stat_service")
 class TestStatisticService(TestCase):
     def setUp(self):
         self.valid_statistic = StatisticSchema(
@@ -12,8 +14,8 @@ class TestStatisticService(TestCase):
             rom=[50.0, 100.0],
         )
 
-    def test_stat_create(self, stat_service):
-        stat_service.create(self.valid_statistic)
+    def test_stat_create(self):
+        self.stat_service.create(self.valid_statistic)
         response = stat_service.search(self.valid_statistic.model_dump())
         assert len(response) == 1
 
